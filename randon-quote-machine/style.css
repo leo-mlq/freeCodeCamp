@@ -1,0 +1,72 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+* {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+body {
+  color: #37ad90;
+  background-color: #37ad90;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /*100vh to make QuoteBox justify*/
+}
+
+.QuoteBox {
+  background-color: white;
+  width: 450px;
+  height: auto;
+  border-radius: 5px;
+  padding: 40px 50px;
+}
+.QuoteBox #quote-text {
+  text-align: center;
+  clear: both;
+  height: auto;
+  width: 450px;
+  word-wrap: break-word;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.QuoteBox #quote-text i, .QuoteBox #quote-text span {
+  padding: 5px;
+  display: inline;
+}
+.QuoteBox .QuoteAuthor {
+  padding: 20px;
+  text-align: right;
+  font-size: 1.1rem;
+}
+.QuoteBox .buttons {
+  display: block;
+  padding: 20px 10px;
+}
+.QuoteBox .buttons #tweet-quote {
+  float: left;
+  font-size: 36px;
+  cursor: pointer;
+}
+.QuoteBox .buttons #tweet-quote:hover {
+  font-size: 48px;
+  transform: rotate(45deg);
+}
+.QuoteBox .buttons #new-quote {
+  float: right;
+  display: inline-block;
+  width: auto;
+  height: 36px;
+  color: white;
+  background-color: #37ad90;
+  outline-style: none;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  padding: 0 10px;
+  border-radius: 2px;
+}
+.QuoteBox .buttons #new-quote:hover {
+  opacity: 0.9;
+}
