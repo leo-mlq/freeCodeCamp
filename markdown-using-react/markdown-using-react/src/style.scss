@@ -1,0 +1,168 @@
+$backgroudColor: #444;
+$fontColor: black;
+*{
+  padding:0px;
+  margin:0px;
+}
+body{
+  background: $backgroudColor;
+  position: relative;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.title{
+  text-align: center;
+  color: white;
+  margin: 30px 0;
+}
+.wrapper{
+  background:#008080;
+  color: $fontColor;
+  width: 1100px;
+  height: auto;
+  
+  margin: 0 auto;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+  padding: 0;
+}
+.container{
+  width: 510px;
+  height: 100%;
+  position: relative;
+  margin: 20px;
+  background:#C0C0C0;
+  border-width:1px;
+  border-color:#FFFFFF #808080 #808080 #FFFFFF;
+  border-style:solid;
+  display: inline-block;
+  padding: 2px 0 0 2px;
+}
+.toolbar{
+  display: block;
+  background:#000080;
+  color:#FFF;
+  margin:1px 0 0 1px;
+  float:left;
+  font-family:Tahoma;
+  font-weight:bold;
+  font-size:14px;
+  padding-left: 5px;
+  i{
+    position:relative;
+    right:1px;
+    top:3px;
+    margin:2px 2px;
+    float:right;
+    width:14px;
+    height:13.5px;
+    background:#C0C0C0;
+    border-width:1px;
+    border-color:#FFFFFF #808080 #808080 #FFFFFF;
+    font-size:13px;
+    text-align:center;
+    focus:none;
+    color: black;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+.editorContainer{
+  @extend .container;
+  .toolbar{
+    width: 98%;
+  }
+  textarea{
+    width: 98%;
+    outline: none;
+    min-height: 60vh;
+    height: 100%;
+    padding-left: 5px;
+    padding-top: 5px;
+    font-size: 12px;
+    resize: vertical;
+    //disable horizontal resize
+    border: 1px solid lighten(gray,20%);
+  }  
+}
+
+.previewerContainer{
+  @extend .container;
+  display: flex;
+  flex-direction: column;
+  .toolbar{
+    width: 98%;
+  }
+  .content {
+    position: relative;
+    padding-left: 5px;
+    width: 98%;
+    height: auto;
+    overflow-wrap: break-word;
+  }
+}
+#preview{
+  h1,h2{
+    margin: 10px 0;
+    padding-bottom: 5px;
+    border-bottom: 1px solid;
+  }
+  code,pre{
+    margin: 10px 0;
+    background-color: white;
+  }
+   blockquote {
+    margin: 10px 0;
+    border-left: 3px solid #224B4B;
+    color: #224B4B;
+    padding-left: 5px;
+    margin-left: 25px;
+  }
+   table {
+    margin: 10px 0;
+    border-collapse: collapse;
+  }
+
+  td,
+  th {
+    border: 1px solid black;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  ul, ol{
+    margin-left: 30px;
+  }
+}
+//overrid containers
+.maximized {
+  width: 1080px;
+  min-height: 100vh;
+  margin: 20px auto;
+  
+  .toolbar{
+    width: 99%;
+  }
+  textarea {
+    min-height: 95vh;
+    resize: none;
+    width: 99%;
+  }
+}
+
+.minimized{
+  display: none;
+}
+
+@media screen and(max-width: 860px) {
+  .wrapper{
+    width: 880px;
+    flex-direction: column;
+  }
+}
+
