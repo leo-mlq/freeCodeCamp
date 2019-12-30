@@ -1,0 +1,119 @@
+* {
+  box-sizing: border-box;
+  marign: 0;
+  padding: 0;
+}
+
+body {
+  font-family: sans-serif;
+  color: #222;
+  background: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.container {
+  background: white;
+  width: 640px;
+  padding: 40px;
+  margin: 40px auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+p {
+  max-width: 620px;
+}
+
+form {
+  margin-bottom: 25px;
+  padding: 15px;
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  display: inline-block;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 5px;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: #E4F1FE;
+  border: 1px solid grey;
+  box-shadow: 2px 2px #999;
+  cursor: pointer;
+  width: 100px;
+  float: right;
+}
+
+input[type="submit"]:hover {
+  font-weight: bold;
+}
+input[type="submit"]:active {
+  box-shadow: none; /* to subtly mimic a downward/click motion */
+}
+
+input[required] {
+  background-image: url("https://findicons.com/files/icons/1583/silk_companion_1/16/asterisk_red.png");
+  background-repeat: no-repeat;
+  background-position: 98% 50%;
+  background-size: 0.4em;
+}
+code {
+  font-family: monospace;
+  font-size: 1em;
+  padding: 2px;
+}
+
+.footer {
+  margin: 40px 0;
+}
+
+.center-items {
+  text-align: center;
+}
+.user-stories {
+  position: relative;
+  text-align: justify;
+  max-width: 640px;
+  margin: 15px auto;
+}
+code {
+  font-family: monospace;
+  padding: 2px;
+  color: black;
+  background-color: #fff;
+}
+ol {
+  list-style-position: inside;
+}
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 0.5em;
+}
+.user-stories li {
+  margin-bottom: 1em;
+}
+
+a {
+  color: #2574A9;
+}

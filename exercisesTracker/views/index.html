@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Exercise Tracker | Free Code Camp</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <h1 class="center-items">Exercise tracker</h1>
+      <form action="/api/exercise/new-user" method="post">
+        <h3>Create a New User</h3>
+        <input
+          id="uname"
+          type="text"
+          name="username"
+          placeholder="username"
+          class="required"
+          required
+        />
+        <code>POST /api/exercise/new-user</code>
+        <input type="submit" value="Submit" />
+      </form>
+      <form action="/api/exercise/add" method="post">
+        <h3>Add exercises</h3>
+        <input
+          id="uid"
+          type="text"
+          name="userId"
+          placeholder="userId"
+          class="required"
+          required
+        />
+        <input
+          id="desc"
+          type="text"
+          name="description"
+          placeholder="description"
+          class="required"
+          required
+        />
+        <input
+          id="dur"
+          type="text"
+          name="duration"
+          placeholder="duration (mins.)"
+          class="required"
+          required
+        />
+        <input
+          id="dat"
+          type="text"
+          name="date"
+          placeholder="date (mm-dd-yyyy)"
+        />
+        <code>POST /api/exercise/add</code>
+        <input type="submit" value="Submit" />
+      </form>
+
+      <form action="/api/exercise/log" method="get">
+        <h3>Get users's exercise log</h3>
+        <input
+          id="uid_get"
+          type="text"
+          name="userId"
+          placeholder="userId"
+          class="required"
+          required
+        />
+        <input
+          id="from"
+          type="text"
+          name="from"
+          placeholder="from (mm-dd-yyyy)"
+        />
+        <input id="to" type="text" name="to" placeholder="to (mm-dd-yyyy)" />
+        <input
+          id="limit"
+          type="text"
+          name="limit"
+          placeholder="limit (number)"
+        />
+        <code
+          >GET /api/exercise/log?{userId}[&amp;from][&amp;to][&amp;limit]</code
+        >
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <div class="user-stories">
+      <h3>User Stories:</h3>
+      <ol>
+        <li>
+          I can create a user by posting form data username to
+          /api/exercise/new-user and returned will be an object with username
+          and _id.
+        </li>
+        <li>
+          I can get an array of all users by getting api/exercise/users with the
+          same info as when creating a user.
+        </li>
+        <li>
+          I can add an exercise to any user by posting form data userId(_id),
+          description, duration, and optionally date to /api/exercise/add. If no
+          date supplied it will use current date. App will return the user
+          object with the exercise fields added.
+        </li>
+        <li>
+          I can retrieve a full exercise log of any user by getting
+          /api/exercise/log with a parameter of userId(_id). App will return the
+          user object with added array log and count (total exercise count).
+        </li>
+        <li>
+          I can retrieve part of the log of any user by also passing along
+          optional parameters of from & to or limit. (Date format mm-dd-yyyy,
+          limit = int)
+        </li>
+      </ol>
+    </div>
+    <div class="footer center-items">
+      <span>
+        by <a href="https://leomei.ml">Leo Mei</a> | Node.js Express MongoDB
+      </span>
+    </div>
+  </body>
+</html>
