@@ -1,0 +1,97 @@
+/****** Main Styling ******/
+
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: #222;
+  background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.container {
+  background: white;
+  width: 640px;
+  padding: 40px;
+  margin: 40px auto;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+
+.footer {
+  margin-top: 60px;
+}
+
+ol {
+  list-style-position: inside;
+}
+ul {
+  list-style-type: none;
+}
+
+a {
+  color: #2574A9;
+}
+.view {
+  position: relative;
+  margin: auto;
+  padding: 20px;
+  width: 640px;
+}
+/****** Logo Div Styling ******/
+
+img {
+  margin: 20px auto 0 auto;
+  display: block;
+}
+
+.center-items {
+  text-align: center;
+}
+
+form {
+  margin-bottom: 25px;
+  padding: 15px;
+  background: #ADD8E6;
+  display: inline-block;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 5px;
+}
+
+input {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+}
+
+input[type="submit"] {
+  font-size: 16px;
+  border-radius: 3px;
+  background-color: #ADD8E6;
+  border: 1px solid grey;
+  box-shadow: 2px 2px #999;
+  cursor: pointer;
+  width: 100px;
+  float: right;
+}
+input[type="file"] {
+  border: 1px solid grey;
+  width: 590px;
+  background: white;
+}
+input[type="text"] {
+  border: 1px solid grey;
+  width: 590px;
+}
+
+input[type="submit"]:hover {
+  font-weight: bold;
+}
+input[type="submit"]:active {
+  box-shadow: none; /* to subtly mimic a downward/click motion */
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>File Disk Microservice</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link href="/public/style.css" rel="stylesheet" type="text/css" />
+  </head>
+
+  <body>
+    <div class="container center-items">
+      <h1>LFILE</h1>
+      <div class="view">
+        <h4 id="output"></h4>
+        <form
+          enctype="multipart/form-data"
+          method="POST"
+          action="/api/fileanalyse"
+        >
+          <input id="filefield" type="file" name="upfile" multiple required />
+          <input id="buttonUp" type="submit" value="Upload" />
+        </form>
+      </div>
+      <div class="view">
+        <form method="post" action="/api/getfile">
+          <input
+            id="inputfield"
+            type="text"
+            name="filename"
+            placeholder="file name"
+            required
+          />
+          <input id="buttonDown" type="submit" value="Download" />
+        </form>
+      </div>
+      <div class="footer center-items">
+        <span>
+          by <a href="https://leomei.ml">Leo Mei</a> | Node.js Express MongoDB
+        </span>
+      </div>
+    </div>
+  </body>
+</html>
