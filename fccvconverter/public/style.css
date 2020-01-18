@@ -1,0 +1,74 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-image: linear-gradient(to top, #c1dfc4 0%, #deecdd 100%);
+  background-repeat: no-repeat;
+  font-family: sans-serif;
+  color: #222;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-container {
+  background: white;
+  width: 640px;
+  height: auto;
+  padding: 40px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+}
+form {
+  margin-bottom: 25px;
+  padding: 15px;
+  display: block;
+  border-radius: 5px;
+  margin: 0 100px;
+}
+
+input {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+  font-size: 16px;
+  background-color: inherit;
+}
+
+input[type="submit"] {
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid grey;
+  box-shadow: 2px 2px #999;
+  cursor: pointer;
+  background-color: inherit;
+}
+
+input[type="submit"]:hover {
+  font-weight: bold;
+}
+input[type="submit"]:active {
+  box-shadow: none; /* to subtly mimic a downward/click motion */
+}
+
+.text-center {
+  text-align: center;
+}
+
+#result,
+#jsonResult {
+  margin: 0 auto;
+  display: block;
+  width: 480px;
+  padding: 10px 50px;
+  text-align: center;
+  word-break: break-all;
+}
