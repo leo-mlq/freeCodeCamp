@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Welcome!</title>
+    <meta name="description" content="A cool thing made with HyperDev" />
+    <link
+      id="favicon"
+      rel="icon"
+      href="https://hyperdev.com/favicon-app.ico"
+      type="image/x-icon"
+    />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/public/style.css" />
+  </head>
+  <body class="body-main">
+    <div id="testui" class="container-main">
+      <h1 class="text-main__center">
+        Issue Tracker
+      </h1>
+
+      <form id="testForm" class="form-main border">
+        <h3>Submit issue on <i>apitest</i></h3>
+        <input
+          class="input-main input-main__required"
+          type="text"
+          name="issue_title"
+          placeholder="Title"
+          required
+        /><br />
+        <textarea
+          class="input-main input-main__required"
+          type="text"
+          name="issue_text"
+          placeholder="Text"
+          required
+        ></textarea
+        ><br />
+        <input
+          class="input-main input-main__required"
+          type="text"
+          name="created_by"
+          placeholder="Created by"
+          required
+        /><br />
+
+        <input
+          type="text"
+          class="input-main"
+          name="assigned_to"
+          placeholder="Assigned to"
+        /><br />
+        <input
+          type="text"
+          class="input-main"
+          name="status_text"
+          placeholder="Status text"
+        />
+        <code>POST /api/issue/apitest</code>
+        <button class="button-main" type="submit">Submit Issue</button>
+      </form>
+      <br />
+
+      <form id="testForm2" class="form-main border">
+        <h3>
+          Update issue on <i>apitest</i> (Change any or all to update issue on
+          the _id supplied)
+        </h3>
+        <input
+          class="input-main input-main__required"
+          type="text"
+          name="_id"
+          placeholder="_id"
+          required=""
+        /><br />
+        <input
+          class="input-main"
+          type="text"
+          name="issue_title"
+          placeholder="Title"
+        /><br />
+        <textarea
+          class="input-main"
+          type="text"
+          name="issue_text"
+          placeholder="Text"
+        ></textarea
+        ><br />
+        <input
+          class="input-main"
+          type="text"
+          name="created_by"
+          placeholder="Created by"
+        /><br />
+        <input
+          class="input-main"
+          type="text"
+          name="assigned_to"
+          placeholder="Assigned to"
+        /><br />
+        <input
+          class="input-main"
+          type="text"
+          name="status_text"
+          placeholder="Status text"
+        /><br />
+        <label
+          ><input type="checkbox" name="open" value="false" /> Check to close
+          issue</label
+        ><br />
+        <code>PUT /api/issue/apitest</code>
+        <button class="button-main" type="submit">Submit Issue</button>
+      </form>
+      <br />
+
+      <form id="testForm3" class="form-main border">
+        <h3>Delete issue on <i>apitest</i></h3>
+        <input
+          class="input-main input-main__required"
+          type="text"
+          name="_id"
+          placeholder="_id"
+          required
+        /><br />
+        <code>DELETE /api/issue/apitest</code>
+        <button class="button-main" type="submit">Delete Issue</button>
+      </form>
+      <div id="jsonResult" title="Result"></div>
+    </div>
+    <div class="footer text-main__center">
+      <span>
+        by <a href="https://leomei.ml">Leo Mei</a> | Node.js Express MongoDB
+        Chai
+      </span>
+    </div>
+    <hr style="margin: 50px; margin-top: 50px" />
+    <div id="userstories" style="margin-left: 5%; margin-top: 5%">
+      <h3>Example get usage:</h3>
+      <code>/api/issues/{project}</code><br />
+      <code>/api/issues/{project}?open=true&amp;assigned_to=Joe</code><br />
+      <h3>Example return:</h3>
+      <code
+        >[{"_id":"5871dda29faedc3491ff93bb","issue_title":"Fix error in posting
+        data","issue_text":"When we post data it has an
+        error.","created_on":"2017-01-08T06:35:14.240Z","updated_on":"2017-01-08T06:35:14.240Z","created_by":"Joe","assigned_to":"Joe","open":true,"status_text":"In
+        QA"},...]</code
+      >
+      <br /><br />
+      <h2>
+        <a href="/apitest/">EXAMPLE: Go to <i>/apitest/</i> project issues</a>
+      </h2>
+    </div>
+    <hr style="margin: 50px" />
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script
+      src="https://code.jquery.com/jquery-2.2.1.min.js"
+      integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+      $(function() {
+        $("#testForm").submit(function(e) {
+          $.ajax({
+            url: "/api/issues/apitest",
+            type: "post",
+            data: $("#testForm").serialize(),
+            success: function(data) {
+              $("#jsonResult")
+                .dialog()
+                .html(JSON.stringify(data));
+            }
+          });
+          e.preventDefault();
+        });
+        $("#testForm2").submit(function(e) {
+          $.ajax({
+            url: "/api/issues/apitest",
+            type: "put",
+            data: $("#testForm2").serialize(),
+            success: function(data) {
+              $("#jsonResult")
+                .dialog()
+                .html(JSON.stringify(data));
+            }
+          });
+          e.preventDefault();
+        });
+        $("#testForm3").submit(function(e) {
+          $.ajax({
+            url: "/api/issues/apitest",
+            type: "delete",
+            data: $("#testForm3").serialize(),
+            success: function(data) {
+              $("#jsonResult")
+                .dialog()
+                .html(JSON.stringify(data));
+            }
+          });
+          e.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>
