@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Nasdaq Stock Price Checker</title>
+    <meta name="description" content="A cool thing made with HyperDev" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./public/style.css" />
+  </head>
+  <body class="body-main">
+    <div class="container-main">
+      <h1 class="text-main__center">
+        Nasdaq Stock Price Checker
+      </h1>
+
+      <h3>Get single price and total likes</h3>
+      <form id="testForm2" class="border form-main">
+        <input
+          class="input-main input-main__required"
+          type="text"
+          name="stock"
+          placeholder="goog"
+          required=""
+        />
+        <div class="like">
+          <input type="checkbox" name="like" value="true" /> Like?
+        </div>
+        <button class="button-main" type="submit">Get Price!</button>
+      </form>
+      <h3>Compare and get relative likes</h3>
+      <form id="testForm" class="border form-main ">
+        <input
+          class="input-main input-main__required"
+          type="text"
+          name="stock"
+          placeholder="goog"
+          required=""
+        />
+        <input
+          class="input-main input-main__required"
+          type="text"
+          name="stock"
+          placeholder="msft"
+          required=""
+        />
+
+        <div class="like">
+          <input type="checkbox" name="like" value="true" /> Like both?
+        </div>
+        <button class="button-main" type="submit">Get Price!</button>
+      </form>
+      <div>
+        <h3>Results</h3>
+        <div id="result">
+          <code id="jsonResult"></code>
+        </div>
+      </div>
+    </div>
+    <div class="footer text-main__center">
+      <span>
+        by <a href="https://leomei.site">Leo Mei</a> | Node.js Express MongoDB
+        Chai
+      </span>
+    </div>
+
+    <!-- Your web-app is https, so your scripts need to be too -->
+    <script
+      src="https://code.jquery.com/jquery-2.2.1.min.js"
+      integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function() {
+        $("#testForm").submit(function(e) {
+          $.ajax({
+            url: "/api/stock-prices",
+            type: "get",
+            data: $("#testForm").serialize(),
+            success: function(data) {
+              $("#jsonResult").text(JSON.stringify(data));
+            }
+          });
+          e.preventDefault();
+        });
+        $("#testForm2").submit(function(e) {
+          $.ajax({
+            url: "/api/stock-prices",
+            type: "get",
+            data: $("#testForm2").serialize(),
+            success: function(data) {
+              $("#jsonResult").text(JSON.stringify(data));
+            }
+          });
+          e.preventDefault();
+        });
+      });
+    </script>
+  </body>
+</html>
